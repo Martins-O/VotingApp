@@ -17,9 +17,11 @@ public class UserDetailsController {
 
     private final UserDetailsService service;
 
-    @PostMapping("/resgister")
-    public ResponseEntity<? > register(@RequestBody CreateUserDetailsRequest request){
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody CreateUserDetailsRequest request){
         CreateUserDetailsResponse response = service.register(request);
+        return ResponseEntity.ok().body(response);
     }
+
 
 }
