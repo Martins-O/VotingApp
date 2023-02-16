@@ -4,4 +4,5 @@ import com.martinso.votingapp.data.model.UserDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserDetailsRepository extends JpaRepository<UserDetails, Long> {
+    String findUserByUsername(String userName);
 }

@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
-@NoArgsConstructor
+//@NoArgsConstructor
 @Getter
 @Setter
 @Builder
@@ -34,5 +34,10 @@ public class UserDetails {
     private LocalDateTime createdAt;
     @Transient
     private MultipartFile profileImage;
+    @Column(name = "enabled")
+    private boolean enabled;
 
+    public UserDetails() {
+        this.enabled=false;
+    }
 }
