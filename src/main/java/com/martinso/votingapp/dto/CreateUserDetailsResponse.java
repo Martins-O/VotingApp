@@ -1,5 +1,6 @@
 package com.martinso.votingapp.dto;
 
+import com.martinso.votingapp.data.model.Fullname;
 import lombok.*;
 import org.hibernate.annotations.Formula;
 
@@ -7,17 +8,11 @@ import org.hibernate.annotations.Formula;
 @NoArgsConstructor
 @Setter
 @Getter
-@Builder
 public class CreateUserDetailsResponse {
     private String message;
     private boolean isSuccess;
     private Long id;
-    private String firstName;
-    private String lastName;
-    private String middleName;
-    private String fullname;
+    private int code;
+    private Fullname fullname;
 
-    public CreateUserDetailsResponse(String fullname) {
-        this.fullname = lastName +" "+ middleName +" "+ firstName;
-    }
 }

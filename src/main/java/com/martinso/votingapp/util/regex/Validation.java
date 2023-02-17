@@ -20,6 +20,8 @@ public class Validation {
         return matcher.matches();
     }
 
+
+
     public static final String EMAIL_PATTERN =
             "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
     private static final Pattern emailPattern = Pattern.compile(EMAIL_PATTERN);
