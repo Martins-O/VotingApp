@@ -1,10 +1,9 @@
 package com.martinso.votingapp.util.regex;
 
-import com.martinso.votingapp.data.repository.UserDetailsRepository;
+import com.martinso.votingapp.userdetails.data.repository.UserDetailsRepository;
 import com.martinso.votingapp.exception.AgeIsAllowedException;
 import lombok.AllArgsConstructor;
 
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

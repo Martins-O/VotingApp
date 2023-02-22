@@ -27,7 +27,7 @@ public class ApiRequestExceptionHandler extends ResponseEntityExceptionHandler{
     }
 
 
-    protected ResponseEntity <Object> handleMethodArgumentException(
+    protected ResponseEntity <?> handleMethodArgumentException(
             MethodArgumentNotValidException ex,
             HttpHeaders headers,
             HttpStatusCode statusCode,

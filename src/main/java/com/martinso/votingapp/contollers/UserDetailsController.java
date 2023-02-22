@@ -1,10 +1,10 @@
 package com.martinso.votingapp.contollers;
 
-import com.martinso.votingapp.dto.CreateUserDetailsRequest;
-import com.martinso.votingapp.dto.CreateUserDetailsResponse;
-import com.martinso.votingapp.dto.request.LoginRequest;
-import com.martinso.votingapp.dto.request.LoginResponse;
-import com.martinso.votingapp.service.UserDetailsService;
+import com.martinso.votingapp.userdetails.dto.request.CreateUserDetailsRequest;
+import com.martinso.votingapp.userdetails.dto.response.CreateUserDetailsResponse;
+import com.martinso.votingapp.userdetails.dto.request.LoginRequest;
+import com.martinso.votingapp.userdetails.dto.request.LoginResponse;
+import com.martinso.votingapp.userdetails.service.UserDetailsService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -26,7 +26,7 @@ public class UserDetailsController {
 
     @PostMapping("/login")
     public ResponseEntity< ? > UserLogin(@RequestBody LoginRequest request) {
-        LoginResponse response = service.UserLogin(request);
+        LoginResponse response = service.userLogin(request);
         return ResponseEntity.ok().body(response);
     }
     @GetMapping("{userId}")

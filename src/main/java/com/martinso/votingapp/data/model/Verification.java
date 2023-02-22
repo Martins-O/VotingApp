@@ -1,5 +1,6 @@
 package com.martinso.votingapp.data.model;
 
+import com.martinso.votingapp.userdetails.data.model.UserDetails;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;

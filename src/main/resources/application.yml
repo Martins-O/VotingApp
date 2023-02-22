@@ -15,6 +15,11 @@ spring:
     console:
       enabled: true
 
+  jackson:
+    date-format: "yyyy-MM-dd HH:mm:ss.SSS"
+    time-zone: "GMT+1"
+    serialization:
+      write-dates-as-timestamps: false
 
 server:
   port: 9099

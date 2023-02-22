@@ -1,7 +1,7 @@
 package com.martinso.votingapp;
 
 import com.martinso.votingapp.data.model.Gender;
-import com.martinso.votingapp.dto.CreateUserDetailsRequest;
+import com.martinso.votingapp.userdetails.dto.request.CreateUserDetailsRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -35,9 +35,9 @@ class VotingAppApplicationTests {
 
     private CreateUserDetailsRequest getUserRequest() {
         return CreateUserDetailsRequest.builder()
-                .firstname("Martins")
-                .lastname("Jojolola")
-                .middlename("Oluwaseun")
+                .firstName("Martins")
+                .lastName("Jojolola")
+                .middleName("Oluwaseun")
                 .email("mail")
                 .password("passwordEncoder.encode(request.getPassword()")
                 .phoneNumber("request.getPhoneNumber()")
