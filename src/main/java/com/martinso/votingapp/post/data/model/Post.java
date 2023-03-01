@@ -4,16 +4,14 @@ import com.martinso.votingapp.office.data.model.Office;
 import com.martinso.votingapp.election.data.model.Election;
 import com.martinso.votingapp.userdetails.data.model.UserDetails;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
+@Builder
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

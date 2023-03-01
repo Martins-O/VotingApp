@@ -6,5 +6,5 @@ import com.martinso.votingapp.office.dto.response.OfficeResponse;
 public interface OfficeService {
 
     OfficeResponse createOffice(OfficeRequest request);
-    void deleteOffice(Long userId);
+    void deleteOffice(Long officeId);
 }

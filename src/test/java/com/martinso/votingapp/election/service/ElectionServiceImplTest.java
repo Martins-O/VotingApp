@@ -2,28 +2,38 @@ package com.martinso.votingapp.election.service;
 
 import com.martinso.votingapp.election.dto.request.ElectionRequest;
 import com.martinso.votingapp.election.dto.response.ElectionResponse;
+import com.martinso.votingapp.office.data.model.Office;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
 
-import java.time.LocalDate;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class ElectionServiceImplTest {
 
+    private final ElectionService electionService;
     @Autowired
-    private ElectionService electionService;
+    ElectionServiceImplTest(ElectionService electionService) {
+        this.electionService = electionService;
+    }
 
     @Test
     void testThatRegisterElectionWorks() {
+        Office office = Office.builder()
+                .name("Presidential")
+                .id(1L)
+                .build();
         ElectionRequest request = new ElectionRequest();
-        request.setElectionName("Presidential Election");
-        request.setStartedAt(LocalDate.parse("2022"));
-        request.setEndedAt(LocalDate.parse("2023"));
+        request.setElectionName(office);
+        request.setStartedAt("2022-04-11");
+        request.setEndedAt("2023-04-11");
         ElectionResponse response = electionService.registerElection(request);
-        assertEquals("Elections created successfully", response.getMessage());
+        assertThat(response).isNotNull();
+        assertThat(response.getCode())
+                .isEqualTo(HttpStatus.CREATED.value());
     }
 
 

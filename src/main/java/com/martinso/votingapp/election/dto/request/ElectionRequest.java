@@ -17,8 +17,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class ElectionRequest {
     private Office electionName;
-
     private String startedAt;
-
     private String endedAt;
 }

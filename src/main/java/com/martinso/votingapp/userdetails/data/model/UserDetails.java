@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Builder
+
 public class UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -41,6 +42,30 @@ public class UserDetails {
     @Transient
     private MultipartFile profileImage;
     private boolean enabled = true;
-    private String achievement;
+
+    @Override
+    public String toString() {
+        return "UserDetails{" + "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                ", email='" + email + '\'' +
+                ", address=" + address +
+                ", age=" + age +
+                ", gender=" + gender +
+                ", NIN='" + NIN + '\'' +
+                ", VIN='" + VIN + '\'' +
+                ", createdAt=" + createdAt +
+                ", profileImage=" + profileImage +
+                ", enabled=" + enabled +
+                '}';
+    }
+
+
+    //    private String achievement;
 
 }

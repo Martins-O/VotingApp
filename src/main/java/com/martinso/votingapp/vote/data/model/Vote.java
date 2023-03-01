@@ -1,6 +1,5 @@
 package com.martinso.votingapp.vote.data.model;
 
-import com.martinso.votingapp.post.data.model.Post;
 import com.martinso.votingapp.userdetails.data.model.UserDetails;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -21,7 +20,7 @@ public class Vote {
     private Long id;
     @OneToOne(cascade = CascadeType.ALL)
     private UserDetails details;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Post post;
+//    @OneToOne(cascade = CascadeType.ALL)
+    private String post;
     private LocalDateTime createdAt;
 }

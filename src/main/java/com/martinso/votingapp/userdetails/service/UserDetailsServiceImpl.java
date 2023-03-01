@@ -1,15 +1,15 @@
 package com.martinso.votingapp.userdetails.service;
 
 import com.martinso.votingapp.data.model.Fullname;
+import com.martinso.votingapp.exception.UserDetailsException;
 import com.martinso.votingapp.userdetails.data.model.UserDetails;
 import com.martinso.votingapp.userdetails.data.repository.UserDetailsRepository;
 import com.martinso.votingapp.userdetails.dto.request.CreateUserDetailsRequest;
-import com.martinso.votingapp.userdetails.dto.response.CreateUserDetailsResponse;
 import com.martinso.votingapp.userdetails.dto.request.LoginRequest;
 import com.martinso.votingapp.userdetails.dto.request.LoginResponse;
-import com.martinso.votingapp.exception.UserDetailsException;
+import com.martinso.votingapp.userdetails.dto.response.CreateUserDetailsResponse;
+import jakarta.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

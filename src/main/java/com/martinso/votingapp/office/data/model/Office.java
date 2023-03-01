@@ -12,6 +12,7 @@ import lombok.*;
 @Setter
 @Entity
 @Builder
+@ToString
 public class Office {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
