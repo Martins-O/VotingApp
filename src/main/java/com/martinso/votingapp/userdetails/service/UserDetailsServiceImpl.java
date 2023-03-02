@@ -6,8 +6,9 @@ import com.martinso.votingapp.userdetails.data.model.UserDetails;
 import com.martinso.votingapp.userdetails.data.repository.UserDetailsRepository;
 import com.martinso.votingapp.userdetails.dto.request.CreateUserDetailsRequest;
 import com.martinso.votingapp.userdetails.dto.request.LoginRequest;
-import com.martinso.votingapp.userdetails.dto.request.LoginResponse;
+import com.martinso.votingapp.userdetails.dto.response.LoginResponse;
 import com.martinso.votingapp.userdetails.dto.response.CreateUserDetailsResponse;
+import jakarta.transaction.Transactional;
 import jakarta.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import java.util.Optional;
 @Service
 //@RequiredArgsConstructor
 @Slf4j
+@Transactional
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     private final UserDetailsRepository repository;
@@ -31,13 +33,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public CreateUserDetailsResponse register(CreateUserDetailsRequest request) {
-                if(!request.getPassword().equals(request.getConfirmPassword())){
-                    throw new UserDetailsException("Password mismatch");
-                }
-                String check = String.valueOf(repository.findUserByUsername(request.getUsername()));
-                if(request.getUsername().equals(check))
-                    throw new UserDetailsException("User name already exists");
-
+        String check = String.valueOf(repository.findUserByUsername(request.getUsername()));
+            if(request.getUsername().equals(check))
+                throw new UserDetailsException("User name already exists");
+        String checkEmail = String.valueOf(repository.findUserByEmail(request.getEmail()));
+            if (request.getEmail().equals(checkEmail))
+                throw new UserDetailsException("There is an account with that email address already");
         UserDetails details = UserDetails.builder()
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
@@ -56,7 +57,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 .build();
 
         UserDetails saved = repository.save(details);
-        log.info("saved ->{}", saved.toString());
+        log.info("saved ->{}", saved);
         return getCreate(saved);
     }
 
@@ -69,7 +70,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         UserDetails confirmUser = checkUser.get();
         confirmUser.setPassword(request.getPassword());
         UserDetails saved = repository.save(confirmUser);
-        log.info("saved -> {}", saved.toString());
+        log.info("saved -> {}", saved);
         return getLoginResponse(saved);
     }
 
@@ -79,6 +80,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             new UserDetailsException(String.format("User %s not found", userId))
         );
     }
+
+//    @Override
+//    public Optional<UserDetails> getUserByUsername(String username) {
+//        return repository.findUserByUsername(username);
+//    }
 
     private CreateUserDetailsResponse getCreate(UserDetails userDetail) {
         CreateUserDetailsResponse response = new CreateUserDetailsResponse();
@@ -95,6 +101,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
     private LoginResponse getLoginResponse(UserDetails userDetail){
         return LoginResponse.builder()
+                .id(userDetail.getId())
                 .code(HttpStatus.CREATED.value())
                 .message("Welcome Back!")
                 .isSuccess(true)

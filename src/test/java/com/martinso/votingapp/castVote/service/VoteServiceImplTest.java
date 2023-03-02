@@ -1,14 +1,11 @@
-package com.martinso.votingapp.vote.service;
+package com.martinso.votingapp.castVote.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class VoteServiceImplTest {
 
-    private final VoteService service;
-
-    VoteServiceImplTest(VoteService service) {
-        this.service = service;
+    VoteServiceImplTest(CastVoteService service) {
     }
 
     @BeforeEach

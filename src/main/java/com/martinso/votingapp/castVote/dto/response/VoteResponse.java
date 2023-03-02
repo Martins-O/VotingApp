@@ -1,13 +1,13 @@
-package com.martinso.votingapp.userdetails.dto.request;
+package com.martinso.votingapp.castVote.dto.response;
 
 import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
 @Getter
+@Setter
 @Builder
-public class LoginResponse {
+public class VoteResponse {
     private String message;
     private boolean isSuccess;
     private Long id;

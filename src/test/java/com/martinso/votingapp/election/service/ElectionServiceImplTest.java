@@ -9,22 +9,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class ElectionServiceImplTest {
 
-    private final ElectionService electionService;
     @Autowired
-    ElectionServiceImplTest(ElectionService electionService) {
-        this.electionService = electionService;
-    }
+    private ElectionService electionService;
 
     @Test
     void testThatRegisterElectionWorks() {
         Office office = Office.builder()
                 .name("Presidential")
-                .id(1L)
+//                .id(1L)
                 .build();
         ElectionRequest request = new ElectionRequest();
         request.setElectionName(office);

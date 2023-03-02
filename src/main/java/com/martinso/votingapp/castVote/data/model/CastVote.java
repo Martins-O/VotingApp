@@ -1,6 +1,7 @@
-package com.martinso.votingapp.vote.data.model;
+package com.martinso.votingapp.castVote.data.model;
 
-import com.martinso.votingapp.userdetails.data.model.UserDetails;
+import com.martinso.votingapp.candidate.data.model.Candidate;
+import com.martinso.votingapp.election.data.model.Election;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,13 +15,13 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-public class Vote {
+public class CastVote {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToOne(cascade = CascadeType.ALL)
-    private UserDetails details;
-//    @OneToOne(cascade = CascadeType.ALL)
-    private String post;
+    private Candidate candidateName;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Election election;
     private LocalDateTime createdAt;
 }
