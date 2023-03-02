@@ -41,7 +41,8 @@ public class UserDetails {
     private LocalDateTime createdAt;
     @Transient
     private MultipartFile profileImage;
-    private boolean enabled = true;
+    @Column(name = "enabled")
+    private boolean enabled = false;
 
     @Override
     public String toString() {
