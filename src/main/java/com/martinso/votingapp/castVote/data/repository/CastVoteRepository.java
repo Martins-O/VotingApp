@@ -10,7 +10,7 @@ import java.util.List;
 public interface CastVoteRepository extends JpaRepository<CastVote, Long> {
     List<CastVote> findByCandidateName(Candidate candidateName);
 
-    List<CastVote> getVotesBetween(LocalDateTime start, LocalDateTime end);
+    List<CastVote> findCastVoteByCreatedAtAndEndedAt(LocalDateTime start, LocalDateTime end);
 
 
 }

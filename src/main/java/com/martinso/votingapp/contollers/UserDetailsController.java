@@ -3,7 +3,7 @@ package com.martinso.votingapp.contollers;
 import com.martinso.votingapp.userdetails.dto.request.CreateUserDetailsRequest;
 import com.martinso.votingapp.userdetails.dto.response.CreateUserDetailsResponse;
 import com.martinso.votingapp.userdetails.dto.request.LoginRequest;
-import com.martinso.votingapp.userdetails.dto.request.LoginResponse;
+import com.martinso.votingapp.userdetails.dto.response.LoginResponse;
 import com.martinso.votingapp.userdetails.service.UserDetailsService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

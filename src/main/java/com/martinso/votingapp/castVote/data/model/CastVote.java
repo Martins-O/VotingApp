@@ -24,4 +24,5 @@ public class CastVote {
     @OneToOne(cascade = CascadeType.ALL)
     private Election election;
     private LocalDateTime createdAt;
+    private LocalDateTime endedAt;
 }

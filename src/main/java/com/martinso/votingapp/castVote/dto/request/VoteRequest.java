@@ -14,5 +14,5 @@ import java.time.LocalDateTime;
 public class VoteRequest {
     private Candidate candidateName;
     private Election election;
-    private LocalDateTime createdAt;
+
 }

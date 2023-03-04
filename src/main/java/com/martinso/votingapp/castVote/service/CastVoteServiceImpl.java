@@ -30,6 +30,7 @@ public class CastVoteServiceImpl implements CastVoteService {
         castVote.setElection(request.getElection());
         castVote.setCandidateName(request.getCandidateName());
         castVote.setCreatedAt(LocalDateTime.now());
+        castVote.setEndedAt(LocalDateTime.now());
         CastVote saved = repository.save(castVote);
         log.info("saved -> {}", saved);
         return getVoteResponse(castVote);
@@ -43,7 +44,7 @@ public class CastVoteServiceImpl implements CastVoteService {
 
     @Override
     public List<CastVote> getVotesBetween(LocalDateTime start, LocalDateTime end) {
-        return repository.getVotesBetween(start, end);
+        return repository.findCastVoteByCreatedAtAndEndedAt(start, end);
     }
 
     @Override
