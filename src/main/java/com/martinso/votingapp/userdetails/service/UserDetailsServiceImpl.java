@@ -61,6 +61,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return getCreate(saved);
     }
 
+    private boolean emailExists(String email) {
+        return repository.findUserByEmail(email).isPresent();
+    }
+
     @Override
     public LoginResponse userLogin(@NotNull LoginRequest request) {
         Optional<UserDetails> checkUser = repository.findUserByUsername(request.getUsername());

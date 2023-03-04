@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Builder
+
 public class UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,8 +41,7 @@ public class UserDetails {
     private LocalDateTime createdAt;
     @Transient
     private MultipartFile profileImage;
-//    @Column(name = "enabled")
-    private boolean enabled = false;
+    private boolean enabled = true;
 
     @Override
     public String toString() {
