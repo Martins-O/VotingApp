@@ -23,7 +23,7 @@ class ElectionServiceImplTest {
 //                .id(1L)
                 .build();
         ElectionRequest request = new ElectionRequest();
-        request.setElectionName(office);
+        request.setElectionName("office");
         request.setStartedAt("2022-04-11");
         request.setEndedAt("2023-04-11");
         ElectionResponse response = electionService.registerElection(request);

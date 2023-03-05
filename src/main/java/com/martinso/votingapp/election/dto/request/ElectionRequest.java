@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ElectionRequest {
-    private Office electionName;
+    private String electionName;
     private String startedAt;
     private String endedAt;
     private String politicalParty;

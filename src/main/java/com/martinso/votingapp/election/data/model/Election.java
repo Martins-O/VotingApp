@@ -1,7 +1,9 @@
 package com.martinso.votingapp.election.data.model;
 
-import com.martinso.votingapp.office.data.model.Office;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -17,8 +19,7 @@ public class Election {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Office name;
+    private String name;
     private LocalDate createdAt;
     private LocalDate endedAt;
 }

@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Slf4j
 public class PostServiceImpl implements PostService{
@@ -30,6 +32,11 @@ public class PostServiceImpl implements PostService{
         Post saved = repository.save(post);
         log.info("saved->{}", saved.getRunningPost());
         return getPostResponse(saved);
+    }
+
+    @Override
+    public List<Post> getAllPosts() {
+        return repository.findAll();
     }
 
     private PostResponse getPostResponse(Post post){
