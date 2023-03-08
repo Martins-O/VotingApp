@@ -1,9 +1,8 @@
 package com.martinso.votingapp.admin.data.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.martinso.votingapp.data.model.Address;
+import com.martinso.votingapp.data.model.Gender;
+import jakarta.persistence.*;
 import lombok.*;
 
 @AllArgsConstructor
@@ -20,4 +19,11 @@ public class Admin {
     private String firstName;
     private String middleName;
     private String email;
+    private String password;
+    private String matchpassword;
+    private String username;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
 }
